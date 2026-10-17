@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hafiz Mahdi Hasan | Cybersecurity Engineer</title>
+<meta name="description" content="Hafiz Mahdi Hasan — Offensive Security Engineer from Dhaka, Bangladesh. VAPT, SOC operations, SIEM/SOAR/XDR, cloud security and LLM / GenAI security.">
+<meta name="keywords" content="Hafiz Mahdi Hasan, Mahdi Jewel, Cybersecurity Engineer, Offensive Security, VAPT, Penetration Testing, SOC, SIEM, XDR, Bangladesh">
+<meta name="author" content="Hafiz Mahdi Hasan">
+<meta name="theme-color" content="#05080d">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hafiz Mahdi Hasan | Cybersecurity Engineer">
+<meta property="og:description" content="Offensive Security Engineer — VAPT, SOC, SIEM/XDR, Cloud & AI Security.">
+<meta property="og:image" content="assets/img/profile.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 4 8 13v17c0 15 10 26 24 30 14-4 24-15 24-30V13Z' fill='%2305080d' stroke='%2300ff9c' stroke-width='4'/%3E%3Cpath d='M22 32l7 7 13-14' fill='none' stroke='%2300ff9c' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#05080d;
+  --bg-2:#080d14;
+  --panel:#0b121b;
+  --panel-2:#0f1823;
+  --line:#172433;
+  --line-2:#22364a;
+  --text:#d3dee9;
+  --muted:#8193a6;
+  --dim:#55677a;
+  --green:#00ff9c;
+  --green-d:#00c278;
+  --cyan:#22d3ee;
+  --red:#ff3b5c;
+  --amber:#ffb547;
+  --glow:0 0 18px rgba(0,255,156,.35);
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace;
+  --sans:"Space Grotesk",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --radius:10px;
+  --max:1180px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:var(--green);text-decoration:none}
+a:hover{text-decoration:underline}
+::selection{background:var(--green);color:#000}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:4px}
+
+/* ---------- background layers ---------- */
+#matrix{position:fixed;inset:0;z-index:-2;opacity:.13;pointer-events:none}
+.bg-grid{position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background-image:linear-gradient(rgba(0,255,156,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(0,255,156,.035) 1px,transparent 1px);
+  background-size:44px 44px;
+  mask-image:radial-gradient(ellipse at 50% 30%,#000 30%,transparent 80%);
+  -webkit-mask-image:radial-gradient(ellipse at 50% 30%,#000 30%,transparent 80%)}
+.scanlines{position:fixed;inset:0;z-index:100;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(255,255,255,.018) 0 1px,transparent 1px 3px)}
+
+/* ---------- nav ---------- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(5,8,13,.78);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav-in{max-width:var(--max);margin:0 auto;padding:0 20px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{font-family:var(--mono);font-weight:700;color:var(--text);display:flex;align-items:center;gap:10px;white-space:nowrap}
+.brand:hover{text-decoration:none}
+.brand .shield{width:26px;height:26px}
+.brand b{color:var(--green)}
+.brand .cur{display:inline-block;width:9px;height:17px;background:var(--green);vertical-align:-3px;margin-left:2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.nav-links{display:flex;gap:4px;list-style:none;margin:0;padding:0}
+.nav-links a{font-family:var(--mono);font-size:13px;color:var(--muted);padding:8px 10px;border-radius:6px;display:block}
+.nav-links a:hover,.nav-links a.active{color:var(--green);background:rgba(0,255,156,.07);text-decoration:none}
+.nav-links a span{color:var(--dim)}
+.menu-btn{display:none;background:none;border:1px solid var(--line-2);color:var(--green);border-radius:6px;width:42px;height:38px;cursor:pointer;font-family:var(--mono)}
+@media (max-width:920px){
+  .menu-btn{display:block}
+  .nav-links{position:absolute;top:64px;left:0;right:0;flex-direction:column;background:rgba(5,8,13,.97);border-bottom:1px solid var(--line);padding:10px 16px 16px;display:none}
+  .nav-links.open{display:flex}
+  .nav-links a{padding:12px 10px;font-size:14px}
+}
+
+/* ---------- layout ---------- */
+main{position:relative}
+section{padding:96px 20px}
+.wrap{max-width:var(--max);margin:0 auto}
+.sec-head{margin-bottom:44px}
+.sec-tag{font-family:var(--mono);font-size:13px;color:var(--green);letter-spacing:.06em}
+.sec-tag::before{content:"// ";color:var(--dim)}
+.sec-title{font-size:clamp(28px,4vw,40px);line-height:1.15;margin:8px 0 10px;font-weight:700;letter-spacing:-.01em}
+.sec-title .hl{color:var(--green)}
+.sec-sub{color:var(--muted);max-width:680px;margin:0}
+.panel{background:linear-gradient(180deg,var(--panel),var(--bg-2));border:1px solid var(--line);border-radius:var(--radius);position:relative}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* ---------- hero ---------- */
+.hero{min-height:100vh;min-height:100svh;display:flex;align-items:center;padding-top:110px;padding-bottom:70px}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.status{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12.5px;color:var(--green);border:1px solid rgba(0,255,156,.3);background:rgba(0,255,156,.06);padding:6px 12px;border-radius:100px}
+.status i{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:var(--glow);animation:pulse 1.8s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.hero h1{font-size:clamp(38px,6.2vw,68px);line-height:1.02;margin:22px 0 14px;letter-spacing:-.025em;font-weight:700}
+.hero h1 .glitch{position:relative;color:#fff;display:inline-block}
+.hero h1 .glitch::before,.hero h1 .glitch::after{content:attr(data-text);position:absolute;left:0;top:0;width:100%;overflow:hidden;opacity:0}
+.hero h1 .glitch::before{color:var(--cyan);animation:g1 3.2s infinite linear;clip-path:inset(0 0 60% 0)}
+.hero h1 .glitch::after{color:var(--red);animation:g2 2.6s infinite linear;clip-path:inset(60% 0 0 0)}
+@keyframes g1{0%,92%,99%,100%{opacity:0;transform:none}93%{opacity:.85;transform:translate(-3px,-1px)}95%{opacity:.85;transform:translate(3px,1px)}97%{opacity:.85;transform:translate(-2px,0)}}
+@keyframes g2{0%,90%,97%,100%{opacity:0;transform:none}91%{opacity:.85;transform:translate(3px,1px)}94%{opacity:.85;transform:translate(-3px,-1px)}96%{opacity:.85;transform:translate(2px,0)}}
+.hero .role{font-family:var(--mono);font-size:clamp(15px,2vw,19px);color:var(--muted);min-height:1.7em}
+.hero .role .typed{color:var(--green)}
+.hero .role .caret{display:inline-block;width:10px;height:1.1em;background:var(--green);vertical-align:-3px;animation:blink 1s steps(1) infinite}
+.hero p.lead{color:var(--muted);max-width:560px;margin:20px 0 30px;font-size:17px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{font-family:var(--mono);font-size:14px;font-weight:500;display:inline-flex;align-items:center;gap:9px;padding:12px 20px;border-radius:8px;border:1px solid var(--line-2);color:var(--text);background:var(--panel);cursor:pointer;transition:all .2s}
+.btn:hover{text-decoration:none;border-color:var(--green);color:var(--green);transform:translateY(-2px)}
+.btn.primary{background:var(--green);color:#03140c;border-color:var(--green);font-weight:700}
+.btn.primary:hover{background:#3dffb5;color:#03140c;box-shadow:var(--glow)}
+.btn svg{width:17px;height:17px}
+.socials{display:flex;gap:10px;margin-top:28px}
+.socials a{width:42px;height:42px;display:grid;place-items:center;border:1px solid var(--line-2);border-radius:8px;color:var(--muted);transition:all .2s}
+.socials a:hover{color:var(--green);border-color:var(--green);text-decoration:none;box-shadow:var(--glow)}
+.socials svg{width:19px;height:19px}
+
+.term{overflow:hidden;box-shadow:0 30px 80px -30px rgba(0,255,156,.18)}
+.term-bar{display:flex;align-items:center;gap:7px;padding:11px 14px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.015)}
+.term-bar i{width:11px;height:11px;border-radius:50%;background:#2a3644}
+.term-bar i:nth-child(1){background:#ff5f57}.term-bar i:nth-child(2){background:#febc2e}.term-bar i:nth-child(3){background:#28c840}
+.term-bar span{margin-left:auto;margin-right:auto;font-family:var(--mono);font-size:12px;color:var(--dim);transform:translateX(-20px)}
+.term-body{padding:18px 18px 22px;font-family:var(--mono);font-size:13.5px;line-height:1.75;min-height:340px}
+.term-id{display:flex;gap:16px;align-items:center;margin-bottom:14px;padding-bottom:16px;border-bottom:1px dashed var(--line-2)}
+.avatar{width:92px;height:92px;flex:none;border-radius:50%;padding:3px;background:conic-gradient(var(--green),var(--cyan),var(--green));position:relative}
+.avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover;transform:scale(1.04);background:#fff}
+.avatar-wrap{position:relative;flex:none;border-radius:50%;overflow:hidden}
+.term-id .who{font-family:var(--sans)}
+.term-id .who b{display:block;font-size:18px;color:#fff}
+.term-id .who small{color:var(--muted);font-family:var(--mono);font-size:12px}
+.tl{white-space:pre-wrap;word-break:break-word}
+.tl .p{color:var(--green)}
+.tl .u{color:var(--cyan)}
+.tl .o{color:var(--text)}
+.tl .k{color:var(--amber)}
+.tl .r{color:var(--red)}
+.tl .c{color:var(--dim)}
+
+/* ---------- stats ---------- */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:56px}
+.stat{padding:20px}
+.stat b{display:block;font-family:var(--mono);font-size:34px;color:var(--green);line-height:1.1;text-shadow:var(--glow)}
+.stat span{color:var(--muted);font-size:14px}
+
+/* ---------- about ---------- */
+.about-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:24px}
+.about-text{padding:28px}
+.about-text p{margin:0 0 14px;color:var(--text)}
+.about-text p:last-child{margin:0}
+.about-text strong{color:var(--green);font-weight:500}
+.kv{padding:24px 26px;font-family:var(--mono);font-size:13.5px}
+.kv h3{margin:0 0 14px;font-size:13px;color:var(--dim);font-weight:500}
+.kv dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:10px 16px}
+.kv dt{color:var(--cyan)}
+.kv dd{margin:0;color:var(--text);word-break:break-word}
+.focus{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:24px}
+.focus .panel{padding:22px}
+.focus .ico{width:42px;height:42px;border-radius:9px;display:grid;place-items:center;background:rgba(0,255,156,.08);color:var(--green);margin-bottom:14px;border:1px solid rgba(0,255,156,.2)}
+.focus .ico svg{width:22px;height:22px}
+.focus h3{margin:0 0 6px;font-size:17px}
+.focus p{margin:0;color:var(--muted);font-size:14px}
+.focus .red .ico{color:var(--red);background:rgba(255,59,92,.08);border-color:rgba(255,59,92,.25)}
+.focus .cy .ico{color:var(--cyan);background:rgba(34,211,238,.08);border-color:rgba(34,211,238,.25)}
+.focus .am .ico{color:var(--amber);background:rgba(255,181,71,.08);border-color:rgba(255,181,71,.25)}
+
+/* ---------- experience ---------- */
+.timeline{position:relative;padding-left:34px}
+.timeline::before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--green),var(--cyan) 50%,transparent)}
+.job{position:relative;margin-bottom:22px;padding:24px 26px}
+.job::before{content:"";position:absolute;left:-31px;top:30px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:2px solid var(--green);box-shadow:var(--glow)}
+.job.current::before{background:var(--green)}
+.job-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 20px;align-items:baseline}
+.job h3{margin:0;font-size:20px}
+.job .co{color:var(--green);font-family:var(--mono);font-size:14px}
+.job .meta{font-family:var(--mono);font-size:12.5px;color:var(--muted);text-align:right}
+.job .meta .now{color:#03140c;background:var(--green);padding:1px 8px;border-radius:4px;margin-left:6px;font-weight:700}
+.job ul{margin:14px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:6px 26px}
+.job li{position:relative;padding-left:20px;color:var(--text);font-size:15px}
+.job li::before{content:"▹";position:absolute;left:0;color:var(--green)}
+.job .tags{margin-top:16px}
+
+.tags{display:flex;flex-wrap:wrap;gap:7px}
+.tag{font-family:var(--mono);font-size:12px;padding:4px 10px;border-radius:5px;border:1px solid var(--line-2);color:var(--muted);background:rgba(255,255,255,.015);transition:all .2s}
+.tag:hover{border-color:var(--green);color:var(--green)}
+
+/* ---------- arsenal ---------- */
+.arsenal{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.ars{padding:24px;transition:border-color .25s,transform .25s}
+.ars:hover{border-color:rgba(0,255,156,.45);transform:translateY(-3px)}
+.ars-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.ars-head .ico{width:38px;height:38px;border-radius:8px;display:grid;place-items:center;color:var(--green);background:rgba(0,255,156,.08);border:1px solid rgba(0,255,156,.2)}
+.ars-head .ico svg{width:20px;height:20px}
+.ars h3{margin:0;font-size:17px}
+.ars h3 small{display:block;font-family:var(--mono);font-size:11.5px;color:var(--dim);font-weight:400}
+.methods{margin-top:26px;padding:24px 26px}
+.methods h3{margin:0 0 14px;font-size:15px;font-family:var(--mono);color:var(--cyan);font-weight:500}
+
+/* ---------- operations ---------- */
+.ops{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.op{padding:22px;display:flex;flex-direction:column;gap:10px;overflow:hidden;transition:border-color .25s,transform .25s}
+.op:hover{border-color:rgba(34,211,238,.5);transform:translateY(-3px)}
+.op .sector{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--cyan)}
+.op h3{margin:0;font-size:17px;line-height:1.3}
+.op p{margin:0;color:var(--muted);font-size:14px;flex:1}
+.op .id{font-family:var(--mono);font-size:11px;color:var(--dim)}
+
+/* ---------- credentials ---------- */
+.cert-featured{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.cert{overflow:hidden;display:flex;flex-direction:column;transition:border-color .25s,transform .25s}
+.cert:hover{border-color:rgba(0,255,156,.45);transform:translateY(-3px)}
+.cert-img{position:relative;aspect-ratio:4/3;background:#0d141d;overflow:hidden;cursor:zoom-in;border:0;padding:0;width:100%;display:block}
+.cert-img img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .5s}
+.cert-img.badge{display:grid;place-items:center;background:radial-gradient(circle at 50% 40%,rgba(0,255,156,.10),transparent 65%),#0a1118}
+.cert-img.badge img{width:62%;height:auto;object-fit:contain;filter:drop-shadow(0 10px 24px rgba(0,0,0,.6))}
+.cert:hover .cert-img img{transform:scale(1.04)}
+.cert-img .zoom{position:absolute;right:10px;bottom:10px;font-family:var(--mono);font-size:11px;background:rgba(5,8,13,.85);color:var(--green);padding:4px 8px;border-radius:4px;border:1px solid rgba(0,255,156,.3)}
+.cert-body{padding:18px 20px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.cert-body .issuer{font-family:var(--mono);font-size:12px;color:var(--cyan)}
+.cert-body h3{margin:0;font-size:17px;line-height:1.3}
+.cert-body .date{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.cert-body .note{font-size:13.5px;color:var(--muted)}
+.cert-body .verify{margin-top:auto;padding-top:8px;font-family:var(--mono);font-size:12.5px;display:inline-flex;align-items:center;gap:6px}
+.verified{display:inline-flex;align-items:center;gap:5px;font-family:var(--mono);font-size:11px;color:var(--green)}
+.cert-wall-title{margin:48px 0 16px;font-family:var(--mono);font-size:14px;color:var(--muted);font-weight:500}
+.cert-wall-title b{color:var(--green)}
+.cert-wall{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.cw{display:flex;align-items:center;gap:14px;padding:14px 16px}
+.cw .logo{width:40px;height:40px;flex:none;border-radius:8px;display:grid;place-items:center;font-family:var(--mono);font-weight:700;font-size:12px;border:1px solid var(--line-2);background:var(--panel-2)}
+.cw b{display:block;font-size:14.5px;font-weight:600;line-height:1.3}
+.cw small{font-family:var(--mono);font-size:11.5px;color:var(--muted)}
+.cw a{font-size:11.5px;font-family:var(--mono)}
+
+/* ---------- training / education ---------- */
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:28px}
+.edu{padding:24px 26px;display:flex;gap:18px;align-items:flex-start}
+.edu .ico{width:48px;height:48px;flex:none;border-radius:10px;display:grid;place-items:center;color:var(--cyan);background:rgba(34,211,238,.08);border:1px solid rgba(34,211,238,.25)}
+.edu .ico svg{width:24px;height:24px}
+.edu h3{margin:0 0 4px;font-size:18px}
+.edu .school{color:var(--text)}
+.edu .when{font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-top:4px}
+.highlight{padding:26px;display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:center;margin-bottom:28px;border-color:rgba(0,255,156,.35);background:linear-gradient(120deg,rgba(0,255,156,.07),var(--panel) 45%)}
+.highlight .globe{width:64px;height:64px;color:var(--green)}
+.highlight .label{font-family:var(--mono);font-size:12px;color:var(--green)}
+.highlight h3{margin:4px 0 6px;font-size:20px}
+.highlight p{margin:0;color:var(--muted);font-size:14.5px}
+.train-filter{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.chip{font-family:var(--mono);font-size:12.5px;padding:7px 13px;border-radius:100px;border:1px solid var(--line-2);background:transparent;color:var(--muted);cursor:pointer;transition:all .2s}
+.chip:hover{color:var(--text);border-color:var(--muted)}
+.chip.on{background:var(--green);border-color:var(--green);color:#03140c;font-weight:700}
+.trainings{overflow:hidden}
+.tr-row{display:grid;grid-template-columns:150px 1fr auto;gap:18px;align-items:center;padding:14px 22px;border-bottom:1px solid var(--line);transition:background .2s}
+.tr-row:last-child{border-bottom:0}
+.tr-row:hover{background:rgba(0,255,156,.03)}
+.tr-row .when{font-family:var(--mono);font-size:12.5px;color:var(--muted)}
+.tr-row b{font-weight:600}
+.tr-row .org{color:var(--cyan);font-family:var(--mono);font-size:12.5px;display:block}
+.tr-row .mode{font-family:var(--mono);font-size:11.5px;color:var(--dim);text-align:right}
+.tr-row.hide{display:none}
+
+/* ---------- contact ---------- */
+.contact{padding:44px;text-align:center;overflow:hidden}
+.contact::before{content:"";position:absolute;inset:-1px;border-radius:var(--radius);background:radial-gradient(600px 220px at 50% 0%,rgba(0,255,156,.12),transparent 70%);pointer-events:none}
+.contact h2{font-size:clamp(28px,4.4vw,44px);margin:10px 0 12px;line-height:1.15}
+.contact p{color:var(--muted);max-width:560px;margin:0 auto 28px}
+.contact .btns{justify-content:center}
+.contact-list{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:34px;text-align:left}
+.contact-list a{display:flex;align-items:center;gap:12px;padding:14px 16px;border:1px solid var(--line);border-radius:8px;background:rgba(255,255,255,.012);color:var(--text);transition:all .2s;min-width:0}
+.contact-list a:hover{border-color:var(--green);text-decoration:none}
+.contact-list svg{width:20px;height:20px;color:var(--green);flex:none}
+.contact-list span{display:block;min-width:0}
+.contact-list small{display:block;font-family:var(--mono);font-size:11px;color:var(--dim)}
+.contact-list em{font-style:normal;font-size:13.5px;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+footer{border-top:1px solid var(--line);padding:28px 20px;text-align:center;font-family:var(--mono);font-size:12.5px;color:var(--dim)}
+footer b{color:var(--green);font-weight:500}
+
+/* ---------- lightbox ---------- */
+.lightbox{position:fixed;inset:0;z-index:200;background:rgba(2,4,7,.92);display:none;align-items:center;justify-content:center;padding:24px;backdrop-filter:blur(4px)}
+.lightbox.open{display:flex}
+.lightbox figure{margin:0;max-width:min(1100px,100%);max-height:100%;display:flex;flex-direction:column;gap:12px}
+.lightbox img{max-height:calc(100vh - 120px);width:auto;max-width:100%;margin:0 auto;border-radius:8px;border:1px solid var(--line-2);background:#fff}
+.lightbox figcaption{font-family:var(--mono);font-size:13px;color:var(--muted);text-align:center}
+.lightbox .x{position:absolute;top:16px;right:16px;width:44px;height:44px;border-radius:8px;border:1px solid var(--line-2);background:var(--panel);color:var(--green);font-size:22px;cursor:pointer}
+
+.to-top{position:fixed;right:20px;bottom:20px;z-index:40;width:44px;height:44px;border-radius:8px;border:1px solid var(--line-2);background:rgba(11,18,27,.9);color:var(--green);display:grid;place-items:center;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s}
+.to-top.show{opacity:1;pointer-events:auto}
+.to-top svg{width:20px;height:20px}
+
+/* ---------- responsive ---------- */
+@media (max-width:1080px){
+  .ops{grid-template-columns:repeat(2,1fr)}
+  .focus{grid-template-columns:repeat(2,1fr)}
+  .contact-list{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:920px){
+  .hero-grid,.about-grid{grid-template-columns:1fr}
+  .arsenal,.cert-featured,.cert-wall{grid-template-columns:repeat(2,1fr)}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .job ul{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  section{padding:72px 16px}
+  .nav-in{padding:0 16px}
+  .arsenal,.cert-featured,.cert-wall,.ops,.focus,.edu-grid,.contact-list{grid-template-columns:1fr}
+  .stat b{font-size:28px}
+  .job{padding:20px}
+  .job .meta{text-align:left}
+  .timeline{padding-left:26px}
+  .job::before{left:-23px}
+  .timeline::before{left:5px}
+  .tr-row{grid-template-columns:1fr;gap:4px;padding:14px 16px}
+  .tr-row .mode{text-align:left}
+  .highlight{grid-template-columns:1fr}
+  .contact{padding:32px 20px}
+  .term-body{font-size:12.5px;padding:16px}
+  .avatar{width:74px;height:74px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<canvas id="matrix" aria-hidden="true"></canvas>
+<div class="bg-grid" aria-hidden="true"></div>
+<div class="scanlines" aria-hidden="true"></div>
+
+<!-- Inline SVG icon sprite (no external icon dependency) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5.5 3.4 9.7 8 11 4.6-1.3 8-5.5 8-11V5Z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-target" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/><path d="M12 1v4M12 19v4M1 12h4M19 12h4"/></symbol>
+  <symbol id="i-radar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 12 18.5 5.5"/><path d="M12 7a5 5 0 1 0 5 5"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></symbol>
+  <symbol id="i-cloud" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19a4.5 4.5 0 1 0-1.3-8.8A6 6 0 0 0 4.5 12 3.5 3.5 0 0 0 6 19Z"/><path d="M12 12v4M10 14h4"/></symbol>
+  <symbol id="i-cpu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="5" y="5" width="14" height="14" rx="2"/><rect x="9" y="9" width="6" height="6" rx="1"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3"/></symbol>
+  <symbol id="i-network" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="5" rx="1"/><rect x="2" y="17" width="6" height="5" rx="1"/><rect x="16" y="17" width="6" height="5" rx="1"/><path d="M12 7v5M5 17v-2.5h14V17"/></symbol>
+  <symbol id="i-laptop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="11" rx="1.5"/><path d="M2 19h20"/><path d="m10 9.5 1.5 1.5 3-3"/></symbol>
+  <symbol id="i-terminal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m6 9 3 3-3 3M12 15h5"/></symbol>
+  <symbol id="i-scale" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M7 21h10M5 7h14M5 7l-3 6a3 3 0 0 0 6 0ZM19 7l-3 6a3 3 0 0 0 6 0Z"/></symbol>
+  <symbol id="i-cap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m2 9 10-5 10 5-10 5Z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5M22 9v6"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2c3 3.2 4.5 6.5 4.5 10S15 18.8 12 22c-3-3.2-4.5-6.5-4.5-10S9 5.2 12 2Z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m3 6 9 7 9-7"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M4 21h16"/></symbol>
+  <symbol id="i-ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5.5 3.4 9.7 8 11 4.6-1.3 8-5.5 8-11V5Z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 15 6-6 6 6"/></symbol>
+  <symbol id="i-linkedin" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.5h4V21H3Zm7 0h3.8v1.6h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1V21h-4v-5.2c0-1.24-.02-2.84-1.73-2.84-1.73 0-2 1.35-2 2.75V21h-4Z"/></symbol>
+  <symbol id="i-github" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 8.36 22.9c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.26 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></symbol>
+  <symbol id="i-stack" viewBox="0 0 24 24" fill="currentColor"><path d="M18 21v-6h2v8H3v-8h2v6Z"/><path d="M7 17h9v2H7Zm.2-3.9 8.8 1.8-.4 2-8.8-1.9Zm1.1-4.2 8.1 3.8-.8 1.8-8.1-3.8Zm2.3-4 6.9 5.7-1.3 1.6-6.9-5.8ZM15 1l5.3 7.2-1.6 1.2-5.4-7.2Z"/></symbol>
+</svg>
+
+<header class="nav" id="top">
+  <div class="nav-in">
+    <a class="brand" href="#home" aria-label="Home">
+      <svg class="shield" style="color:var(--green)"><use href="#i-shield"/></svg>
+      <span>mahdi<b>@</b>sec<span class="cur"></span></span>
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">≡</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about"><span>01.</span>about</a></li>
+      <li><a href="#experience"><span>02.</span>experience</a></li>
+      <li><a href="#arsenal"><span>03.</span>arsenal</a></li>
+      <li><a href="#operations"><span>04.</span>projects</a></li>
+      <li><a href="#credentials"><span>05.</span>certs</a></li>
+      <li><a href="#training"><span>06.</span>training</a></li>
+      <li><a href="#contact"><span>07.</span>contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+<!-- ================= HERO ================= -->
+<section class="hero" id="home">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="reveal">
+        <span class="status"><i></i>SYSTEM ONLINE · Open to security collaborations</span>
+        <h1>Hafiz <span class="glitch" data-text="Mahdi Hasan">Mahdi Hasan</span></h1>
+        <div class="role" aria-live="polite">&gt; <span class="typed" id="typed"></span><span class="caret"></span></div>
+        <p class="lead">Offensive Security Engineer with 6+ years breaking, defending and hardening systems — from VAPT and SOC operations to SIEM/XDR deployments for national critical infrastructure, and securing GenAI / LLM pipelines.</p>
+        <div class="btns">
+          <a class="btn primary" href="#contact"><svg><use href="#i-terminal"/></svg>./contact.sh</a>
+          <a class="btn" href="assets/Hafiz_Mahdi_Hasan_CV.pdf" download><svg><use href="#i-download"/></svg>Download CV</a>
+        </div>
+        <div class="socials">
+          <a href="https://www.linkedin.com/in/mahdi-jewel/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg><use href="#i-linkedin"/></svg></a>
+          <a href="https://github.com/mahdi-jewel" target="_blank" rel="noopener" aria-label="GitHub"><svg><use href="#i-github"/></svg></a>
+          <a href="https://stackoverflow.com/users/12468519/hafiz-mahdi-hasan" target="_blank" rel="noopener" aria-label="Stack Overflow"><svg><use href="#i-stack"/></svg></a>
+          <a href="mailto:mahdijewel.cse@gmail.com" aria-label="Email"><svg><use href="#i-mail"/></svg></a>
+        </div>
+      </div>
+
+      <div class="panel term reveal" aria-label="Terminal profile">
+        <div class="term-bar"><i></i><i></i><i></i><span>root@mahdi: ~/profile</span></div>
+        <div class="term-body">
+          <div class="term-id">
+            <div class="avatar"><div class="avatar-wrap"><img src="assets/img/profile.jpg" alt="Portrait of Hafiz Mahdi Hasan" width="480" height="480"></div></div>
+            <div class="who"><b>Hafiz Mahdi Hasan</b><small>aka Mahdi Jewel · Dhaka, BD</small></div>
+          </div>
+          <div class="tl" id="termOut"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats" id="stats">
+      <div class="panel stat reveal"><b data-count="6" data-suffix="+">0</b><span>Years in cybersecurity</span></div>
+      <div class="panel stat reveal"><b data-count="0" id="statCerts">0</b><span>Certifications &amp; badges</span></div>
+      <div class="panel stat reveal"><b data-count="0" id="statProjects">0</b><span>Security projects delivered</span></div>
+      <div class="panel stat reveal"><b data-count="0" id="statTrain">0</b><span>Professional trainings</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-tag">01 · whoami</div>
+      <h2 class="sec-title">Red-team mindset, <span class="hl">blue-team discipline.</span></h2>
+      <p class="sec-sub">Hands-on engineer who has configured, deployed and run security stacks across many OEMs — and then tried to break them.</p>
+    </div>
+    <div class="about-grid">
+      <div class="panel about-text reveal">
+        <p>I'm a <strong>Cybersecurity Engineer</strong> currently working as <strong>Assistant Manager (Offensive Security Engineer)</strong> at Bashundhara Group, Dhaka. My path started in application pentesting and bug hunting, moved through system security and SOC engineering, and now spans offensive security, GRC and secure-by-design pipelines.</p>
+        <p>I have extensive hands-on experience with <strong>SIEM, EDR, XDR, Threat Intelligence Platforms, Dark Web Monitoring, IDS/IPS, VAPT</strong> and <strong>Email Security Gateways</strong> — working with industry-leading products to strengthen security posture, monitor and mitigate threats, and keep organisations compliant with their security policies.</p>
+        <p>I've supported cybersecurity operations for organisations such as <strong>Bangladesh Police, the National Board of Revenue, Chittagong Port Authority, Titas Gas</strong> and <strong>NRB Bank</strong>, and I'm pursuing an <strong>M.Sc. in Information Security at BUET</strong>. Lately I focus on <strong>AI security</strong> — securing GenAI-driven applications and LLM pipelines.</p>
+      </div>
+      <div class="panel kv reveal">
+        <h3>$ cat /etc/profile.conf</h3>
+        <dl>
+          <dt>name</dt><dd>Hafiz Mahdi Hasan</dd>
+          <dt>alias</dt><dd>Mahdi Jewel</dd>
+          <dt>role</dt><dd>Offensive Security Engineer</dd>
+          <dt>org</dt><dd>Bashundhara Group</dd>
+          <dt>base</dt><dd>Uttara, Dhaka, Bangladesh</dd>
+          <dt>study</dt><dd>M.Sc. InfoSec @ BUET</dd>
+          <dt>focus</dt><dd>VAPT · SOC · Cloud · AI Sec</dd>
+          <dt>email</dt><dd><a href="mailto:mahdijewel.cse@gmail.com">mahdijewel.cse@gmail.com</a></dd>
+        </dl>
+      </div>
+    </div>
+    <div class="focus">
+      <div class="panel red reveal"><div class="ico"><svg><use href="#i-target"/></svg></div><h3>Offensive Security</h3><p>VAPT across systems, web, mobile, APIs and networks; source review; OWASP Top 10 / SANS 25.</p></div>
+      <div class="panel reveal"><div class="ico"><svg><use href="#i-radar"/></svg></div><h3>Detection &amp; Response</h3><p>SOC monitoring, SIEM/SOAR/XDR deployment, incident detection, response and mitigation.</p></div>
+      <div class="panel cy reveal"><div class="ico"><svg><use href="#i-cloud"/></svg></div><h3>Cloud &amp; AI Security</h3><p>Azure, Entra, Prisma Cloud, Purview DLP — and secure pipelines for GenAI / LLM apps.</p></div>
+      <div class="panel am reveal"><div class="ico"><svg><use href="#i-scale"/></svg></div><h3>GRC &amp; Awareness</h3><p>Policy enforcement, audits and benchmark reporting, plus security training for staff.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EXPERIENCE ================= -->
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-tag">02 · cat experience.log</div>
+      <h2 class="sec-title">Career <span class="hl">attack path</span></h2>
+      <p class="sec-sub">From junior pentester to leading offensive security — six years of escalating privileges.</p>
+    </div>
+    <div class="timeline" id="timeline"></div>
+  </div>
+</section>
+
+<!-- ================= ARSENAL ================= -->
+<section id="arsenal">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-tag">03 · ls ~/arsenal</div>
+      <h2 class="sec-title">Tools &amp; <span class="hl">platforms</span> I've deployed</h2>
+      <p class="sec-sub">Hands-on with the products below — deploying, tuning, operating and testing them in production environments.</p>
+    </div>
+    <div class="arsenal" id="arsenalGrid"></div>
+    <div class="panel methods reveal">
+      <h3>&gt; frameworks_and_methods</h3>
+      <div class="tags" id="methods"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= OPERATIONS ================= -->
+<section id="operations">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-tag">04 · ./operations --list</div>
+      <h2 class="sec-title">Projects &amp; <span class="hl">engagements</span></h2>
+      <p class="sec-sub">Security work across government, critical infrastructure, banking and academia.</p>
+    </div>
+    <div class="ops" id="opsGrid"></div>
+  </div>
+</section>
+
+<!-- ================= CREDENTIALS ================= -->
+<section id="credentials">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-tag">05 · gpg --verify credentials</div>
+      <h2 class="sec-title">Certifications &amp; <span class="hl">badges</span></h2>
+      <p class="sec-sub">Click any certificate to view it full size. Verification links open the issuer's official record where available.</p>
+    </div>
+    <div class="cert-featured" id="certFeatured"></div>
+    <h3 class="cert-wall-title">&gt; <b>additional_credentials</b> --issuer=all</h3>
+    <div class="cert-wall" id="certWall"></div>
+  </div>
+</section>
+
+<!-- ================= TRAINING / EDUCATION ================= -->
+<section id="training">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-tag">06 · history | grep learn</div>
+      <h2 class="sec-title">Education &amp; <span class="hl">training</span></h2>
+      <p class="sec-sub">Continuous learning across academia, vendor programmes and international camps.</p>
+    </div>
+    <div class="edu-grid">
+      <div class="panel edu reveal">
+        <div class="ico"><svg><use href="#i-cap"/></svg></div>
+        <div><h3>M.Sc. in Information Security</h3><a class="school" href="https://www.buet.ac.bd/" target="_blank" rel="noopener">Bangladesh University of Engineering &amp; Technology (BUET)</a><div class="when">04/2024 – present · Dhaka</div></div>
+      </div>
+      <div class="panel edu reveal">
+        <div class="ico"><svg><use href="#i-cap"/></svg></div>
+        <div><h3>B.Sc. in Computer Science &amp; Engineering</h3><a class="school" href="https://daffodilvarsity.edu.bd/" target="_blank" rel="noopener">Daffodil International University (DIU)</a><div class="when">05/2016 – 04/2020 · Dhaka</div></div>
+      </div>
+    </div>
+    <div class="panel highlight reveal">
+      <svg class="globe"><use href="#i-globe"/></svg>
+      <div>
+        <div class="label">INTERNATIONAL · APNIC · AUG 2026 · HANOI, VIETNAM</div>
+        <h3>Asia Pacific Internet Engineering Camp (APIE)</h3>
+        <p>Network deployment, virtualization &amp; cybersecurity, configuring DNS servers and zones, IoT &amp; cloud computing, plus industry visits and presentations. <a href="https://apie.soi.asia/2026/08/13/new-connections-new-experiences-apie-camp-10-in-viet-nam/" target="_blank" rel="noopener">Read about the camp ↗</a></p>
+      </div>
+    </div>
+    <div class="train-filter" id="trainFilter" role="group" aria-label="Filter trainings"></div>
+    <div class="panel trainings reveal" id="trainList"></div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact">
+  <div class="wrap">
+    <div class="panel contact reveal">
+      <div class="sec-tag">07 · ssh mahdi@contact</div>
+      <h2>Let's secure something <span style="color:var(--green)">together.</span></h2>
+      <p>Open to conversations on penetration testing, SOC / SIEM engineering, cloud and AI security, training, and research collaborations.</p>
+      <div class="btns">
+        <a class="btn primary" href="mailto:mahdijewel.cse@gmail.com"><svg><use href="#i-mail"/></svg>Send an email</a>
+        <a class="btn" href="https://www.linkedin.com/in/mahdi-jewel/" target="_blank" rel="noopener"><svg><use href="#i-linkedin"/></svg>Connect on LinkedIn</a>
+      </div>
+      <div class="contact-list">
+        <a href="mailto:mahdijewel.cse@gmail.com"><svg><use href="#i-mail"/></svg><span><small>email</small><em>mahdijewel.cse@gmail.com</em></span></a>
+        <a href="https://www.linkedin.com/in/mahdi-jewel/" target="_blank" rel="noopener"><svg><use href="#i-linkedin"/></svg><span><small>linkedin</small><em>in/mahdi-jewel</em></span></a>
+        <a href="https://github.com/mahdi-jewel" target="_blank" rel="noopener"><svg><use href="#i-github"/></svg><span><small>github</small><em>mahdi-jewel</em></span></a>
+        <a href="https://stackoverflow.com/users/12468519/hafiz-mahdi-hasan" target="_blank" rel="noopener"><svg><use href="#i-stack"/></svg><span><small>stack overflow</small><em>hafiz-mahdi-hasan</em></span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div>© <span id="year">2026</span> <b>Hafiz Mahdi Hasan</b> · Built with HTML, CSS &amp; vanilla JS · <span style="color:var(--green)">[ connection secured ]</span></div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Back to top"><svg><use href="#i-up"/></svg></button>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Certificate preview">
+  <button class="x" id="lbClose" aria-label="Close preview">×</button>
+  <figure><img id="lbImg" src="" alt=""><figcaption id="lbCap"></figcaption></figure>
+</div>
+
+<script>
+/* =====================================================================
+   CONTENT — edit these arrays to update the site.
+   All images live in assets/img/ (relative paths → works on GitHub Pages).
+   ===================================================================== */
+const EXPERIENCE = [
+  { role:"Asst. Manager — Offensive Security Engineer", company:"Bashundhara Group", period:"10/2025 – present", place:"Dhaka, Bangladesh", current:true,
+    points:["Conduct VAPT and remediate identified security risks","Enforce secure coding and CI/CD security practices","Harden infrastructure and networks to strengthen defences","Incident detection, response and mitigation","Optimise cloud security settings and ensure compliance","Enforce GRC aligned with industry security standards","Audit systems and report against security benchmarks","Research emerging threats for a proactive posture","Deliver cybersecurity training and awareness sessions","Secure the pipeline for GenAI-driven applications"],
+    tags:["VAPT","DevSecOps","GRC","Cloud Security","GenAI Security","Incident Response"] },
+  { role:"Cybersecurity Engineer", company:"BRACNet Ltd.", period:"03/2024 – 09/2025", place:"Dhaka, Bangladesh",
+    points:["Deployed and maintained firewalls, IDS/IPS and SIEM solutions","Monitored the Security Operations Center (SOC)","Deployed advanced security solutions and best practices","Researched and implemented new cybersecurity solutions","Conducted VAPT for systems, web/apps and networks","Incident detection, response and mitigation","Monitored networks and systems for threats","Enforced security policies and trained employees","Analysed emerging threats and implemented countermeasures","Led audits and prepared reports for stakeholders"],
+    tags:["SOC","SIEM","IDS/IPS","Firewalls","VAPT","Threat Analysis"] },
+  { role:"System Security Engineer", company:"Divine IT Limited", period:"07/2022 – 02/2024", place:"Dhaka, Bangladesh",
+    points:["Risk assessments, vulnerability scans and penetration tests","Defended company systems and networks from online threats","Deployed advanced security tools and best practices","Evaluated risk against OWASP Top 10, SANS 25 and other frameworks","Managed incident detection, response and mitigation","Analysed suspicious activity and disclosed security breaches","Conducted OSINT to uncover security risks"],
+    tags:["Risk Assessment","Pentesting","OWASP","OSINT","Incident Response"] },
+  { role:"Jr. Pentester", company:"ATI Limited", period:"08/2020 – 06/2022", place:"Dhaka, Bangladesh",
+    points:["Security testing and bug hunting for software and applications","Security assessments of web, mobile and desktop applications","Source code review to detect security flaws","Testing for SQL Injection, XSS, CSRF and more","Conducted OSINT to uncover security risks","Communicated findings to developers and security teams"],
+    tags:["Web/Mobile Pentest","Bug Hunting","Code Review","SQLi / XSS / CSRF"] }
+];
+
+const ARSENAL = [
+  { title:"Offensive & AppSec Tools", sub:"recon · exploit · test", icon:"i-target",
+    items:["Nessus","Metasploit","Acunetix","Nmap","Burp Suite","OWASP ZAP","SonarQube (SAST)","Hydra","Frida","Autopsy"] },
+  { title:"SIEM / SOAR / EDR", sub:"detect · correlate · respond", icon:"i-radar",
+    items:["IBM QRadar","QRadar SOAR","Microsoft Sentinel","FortiSIEM","FortiSOAR","Wazuh","RSA SIEM","Cortex EDR","Trend Micro"] },
+  { title:"Network Security", sub:"perimeter · traffic · intel", icon:"i-network",
+    items:["Palo Alto Firewall","Cisco Snort","FortiGate / FortiGuard","F5 Anti-DDoS","F5 DNS","SOCRadar Dark Web Monitoring"] },
+  { title:"Endpoint Detection", sub:"xdr · edr · protection", icon:"i-laptop",
+    items:["Trend Micro XDR","Microsoft Defender","Microsoft 365 Security","Symantec EDR","Palo Alto Cortex XDR"] },
+  { title:"Cloud Security", sub:"identity · posture · dlp", icon:"i-cloud",
+    items:["Azure Cloud Security","Azure AD","Microsoft Entra","Prisma Cloud","Microsoft Purview (DLP)","Cloudflare WAF"] },
+  { title:"AI Security & Governance", sub:"llm · genai · agentic", icon:"i-cpu",
+    items:["Microsoft Foundry","Zscaler","Aikido (AI-based VAPT)","Agentic AI Security","LLM Security","Secure GenAI Pipelines"] }
+];
+const METHODS = ["OWASP Top 10","SANS / CWE Top 25","VAPT Methodology","OSINT","Threat Intelligence","Dark Web Monitoring","Incident Response","Secure SDLC / CI-CD","Risk Assessment","Security Audits","GRC","Critical Infrastructure Protection","Risk Quantification (FAIR)","Email Security Gateway","DNS Security"];
+
+const PROJECTS = [
+  { client:"Bangladesh Police", sector:"Law Enforcement", desc:"Cybersecurity operations & solutions." },
+  { client:"National Board of Revenue (NBR)", sector:"Government", desc:"Data center operation and EDR deployment." },
+  { client:"Chittagong Port Authority", sector:"Critical Infrastructure", desc:"Installation of IDS / IPS." },
+  { client:"Titas Gas Transmission & Distribution PLC", sector:"Energy / Utilities", desc:"Data center extension project." },
+  { client:"NRB Bank PLC", sector:"Banking & Finance", desc:"Endpoint protection, email security and ransomware protection deployment." },
+  { client:"BUET Data Center", sector:"Academia", desc:"Implementing open-source threat intelligence pipelines for the BUET SOC." },
+  { client:"Mastercard", sector:"Virtual Experience · Forage", desc:"Cybersecurity virtual job simulation program — December 2024." },
+  { client:"Datacom", sector:"Virtual Experience · Forage", desc:"Worked alongside Datacom's cybersecurity team scenarios to learn how they protect clients." }
+];
+
+/* Featured certificates with images. `img` opens in the lightbox. */
+const CERTS_FEATURED = [
+  { title:"Certified LLM Security Expert (CLLMSE)", issuer:"Red Team Leaders", date:"Jul 14, 2026", img:"assets/img/cert-cllmse.jpg",
+    verify:"https://courses.redteamleaders.com/exam-completion/c783040506a422ef", note:"Exam-based certification in securing large language models and GenAI applications." },
+  { title:"Information Security Manager (ISM)", issuer:"CyberExam", date:"Sep 26, 2026", img:"assets/img/cert-ism.jpg",
+    verify:"https://certs.cyberexam.io/v/7e578362", note:"Certified Information Security Program Leader · Grade: Merit (66/83 · 80%) · Incident Management, 2024 Regulatory Compliance, Risk Quantification (FAIR)." },
+  { title:"Certified Cybersecurity Educator Professional (CCEP)", issuer:"Red Team Leaders", date:"Nov 27, 2025", img:"assets/img/cert-ccep.jpg",
+    verify:"https://courses.redteamleaders.com/completion/bb15627ec9555d16", note:"Professional certification for delivering cybersecurity education and training." },
+  { title:"Introduction to Critical Infrastructure Protection (ICIP)", issuer:"OPSWAT Academy", date:"Apr 20, 2026", img:"assets/img/cert-opswat-icip.jpg",
+    verify:"https://learn.opswatacademy.com/certificate/bXwyMW8CWA", note:"Graduate of the OPSWAT Introduction to CIP program · 0.30 CPE · Certificate ID bXwyMW8CWA." },
+  { title:"Cybersecurity Fundamentals", issuer:"APNIC Academy", date:"Jun 10, 2026", img:"assets/img/cert-apnic-csf.jpg",
+    note:"Certificate of Achievement for completing the APNIC Academy course." },
+  { title:"ICIP — Digital Badge", issuer:"OPSWAT", date:"Apr 2026", img:"assets/img/badge-opswat-icip.png", badge:true,
+    verify:"https://learn.opswatacademy.com/certificate/bXwyMW8CWA", note:"Introduction to Critical Infrastructure Protection badge." },
+  { title:"CTI Fundamentals for SOC Analysts", issuer:"SOCRadar", date:"2026", img:"assets/img/badge-socradar-cti.png", badge:true,
+    note:"Cyber Threat Intelligence fundamentals for SOC analysts." },
+  { title:"Dark Web Monitoring — Crash Course", issuer:"SOCRadar", date:"2026", img:"assets/img/badge-socradar-darkweb.png", badge:true,
+    note:"Intelligence from the underground: dark web monitoring fundamentals." },
+  { title:"ISM — Credential Summary", issuer:"CyberExam", date:"Sep 26, 2026", img:"assets/img/cert-ism-card.jpg",
+    verify:"https://certs.cyberexam.io/v/7e578362", note:"Score breakdown: 43 MC · 2 matching · 8 lab tasks · first attempt." }
+];
+
+/* Additional certifications listed on the CV (no image file). */
+const CERTS_OTHER = [
+  { title:"ISC2 Certified in Cybersecurity (CC)", issuer:"ISC2", logo:"ISC2", color:"#7fd3ff", verify:"https://www.credly.com/earner/earned/badge/5eb6f186-223c-4f49-a3e4-14bbe7a28c40" },
+  { title:"ISC2 Security Operations", issuer:"ISC2", logo:"ISC2", color:"#7fd3ff" },
+  { title:"CCNA — Cisco Certified Network Associate", issuer:"Cisco", logo:"CSCO", color:"#22d3ee", verify:"https://www.credly.com/badges/eae720ad-c917-4cb1-8994-596b99231f24" },
+  { title:"Cisco Certified Ethical Hacker (CCEH)", issuer:"Cisco", logo:"CSCO", color:"#22d3ee" },
+  { title:"Fortinet NSE — Network Security Expert", issuer:"Fortinet", logo:"FTNT", color:"#ff3b5c" },
+  { title:"Fortinet Certified Cybersecurity", issuer:"Fortinet", logo:"FTNT", color:"#ff3b5c" },
+  { title:"Fortinet FortiGuard Operator", issuer:"Fortinet", logo:"FTNT", color:"#ff3b5c" },
+  { title:"Cybersecurity for Business", issuer:"EC-Council", logo:"EC", color:"#ffb547" },
+  { title:"SQL Injection Attacks", issuer:"EC-Council", logo:"EC", color:"#ffb547" },
+  { title:"Android Bug Bounty Hunting", issuer:"EC-Council", logo:"EC", color:"#ffb547" },
+  { title:"API Security Certification", issuer:"API Security", logo:"API", color:"#00ff9c" }
+];
+
+const TRAININGS = [
+  { title:"Asia Pacific Internet Engineering Camp", org:"APNIC", when:"08/2026", mode:"Hanoi, Vietnam", cat:"Network" },
+  { title:"Professional Training on Cyber Security", org:"IIT, University of Dhaka & EDGE Bangladesh", when:"08/2023 – present", mode:"Dhaka, Bangladesh", cat:"Security" },
+  { title:"QRadar SOAR", org:"IBM Training", when:"03/2025 – 05/2025", mode:"Online, self-paced", cat:"SOC" },
+  { title:"IBM QRadar SIEM Architecture", org:"IBM Training", when:"02/2025 – 03/2025", mode:"Online, self-paced", cat:"SOC" },
+  { title:"IBM zSystems Cybersecurity Insights", org:"IBM Training", when:"02/2025", mode:"Online, self-paced", cat:"Security" },
+  { title:"Using IBM QRadar SIEM", org:"IBM Training", when:"01/2025 – 02/2025", mode:"Online, self-paced", cat:"SOC" },
+  { title:"Ethical Hacker", org:"Cisco Networking Academy", when:"01/2025 – 04/2025", mode:"Online, self-paced", cat:"Offensive" },
+  { title:"SOC Analyst Essentials", org:"Udemy", when:"07/2024 – 09/2024", mode:"Online, self-paced", cat:"SOC" },
+  { title:"Advanced Cyber Security", org:"SANS Institute", when:"01/2024 – 02/2024", mode:"Online, self-paced", cat:"Security" },
+  { title:"Web Penetration Testing", org:"Team Matrix", when:"07/2023 – 12/2023", mode:"Dhaka, Bangladesh", cat:"Offensive" },
+  { title:"Advanced DNS Security", org:"APNIC", when:"04/2023 – 06/2023", mode:"Online, self-paced", cat:"Network" },
+  { title:"Mikrotik MTCNA", org:"Creative IT Institute", when:"04/2023 – 06/2023", mode:"Dhaka, Bangladesh", cat:"Network" },
+  { title:"Networking Security and Automation", org:"Cisco Networking Academy", when:"01/2023 – 06/2023", mode:"Online, instructor-led", cat:"Network" },
+  { title:"Cisco CCNA", org:"Creative IT Institute", when:"11/2022 – 04/2023", mode:"Dhaka, Bangladesh", cat:"Network" }
+];
+
+/* ===================================================================== */
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const icon = id => `<svg><use href="#${id}"/></svg>`;
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ---- render: experience ---- */
+$("#timeline").innerHTML = EXPERIENCE.map(j => `
+  <article class="panel job reveal${j.current ? " current" : ""}">
+    <div class="job-top">
+      <div><h3>${esc(j.role)}</h3><div class="co">@ ${esc(j.company)}</div></div>
+      <div class="meta">${esc(j.period)}${j.current ? '<span class="now">NOW</span>' : ""}<br>${esc(j.place)}</div>
+    </div>
+    <ul>${j.points.map(p => `<li>${esc(p)}</li>`).join("")}</ul>
+    <div class="tags">${j.tags.map(t => `<span class="tag">${esc(t)}</span>`).join("")}</div>
+  </article>`).join("");
+
+/* ---- render: arsenal ---- */
+$("#arsenalGrid").innerHTML = ARSENAL.map(a => `
+  <div class="panel ars reveal">
+    <div class="ars-head"><div class="ico">${icon(a.icon)}</div><h3>${esc(a.title)}<small>${esc(a.sub)}</small></h3></div>
+    <div class="tags">${a.items.map(t => `<span class="tag">${esc(t)}</span>`).join("")}</div>
+  </div>`).join("");
+$("#methods").innerHTML = METHODS.map(t => `<span class="tag">${esc(t)}</span>`).join("");
+
+/* ---- render: projects ---- */
+$("#opsGrid").innerHTML = PROJECTS.map((p, i) => `
+  <div class="panel op reveal">
+    <span class="sector">${esc(p.sector)}</span>
+    <h3>${esc(p.client)}</h3>
+    <p>${esc(p.desc)}</p>
+    <span class="id">OP-${String(i + 1).padStart(3, "0")}</span>
+  </div>`).join("");
+
+/* ---- render: certificates ---- */
+$("#certFeatured").innerHTML = CERTS_FEATURED.map((c, i) => `
+  <article class="panel cert reveal">
+    <button class="cert-img${c.badge ? " badge" : ""}" data-i="${i}" aria-label="View ${esc(c.title)} full size">
+      <img src="${esc(c.img)}" alt="${esc(c.title)} — ${esc(c.issuer)}" loading="lazy">
+      <span class="zoom">[ view ]</span>
+    </button>
+    <div class="cert-body">
+      <span class="issuer">${esc(c.issuer)}</span>
+      <h3>${esc(c.title)}</h3>
+      <span class="date">Issued: ${esc(c.date)}</span>
+      ${c.note ? `<span class="note">${esc(c.note)}</span>` : ""}
+      ${c.verify ? `<a class="verify" href="${esc(c.verify)}" target="_blank" rel="noopener"><svg width="14" height="14"><use href="#i-check"/></svg>Verify credential ↗</a>` : ""}
+    </div>
+  </article>`).join("");
+
+$("#certWall").innerHTML = CERTS_OTHER.map(c => `
+  <div class="panel cw reveal">
+    <div class="logo" style="color:${c.color}">${esc(c.logo)}</div>
+    <div><b>${esc(c.title)}</b><small>${esc(c.issuer)}</small>${c.verify ? ` · <a href="${esc(c.verify)}" target="_blank" rel="noopener">verify ↗</a>` : ""}</div>
+  </div>`).join("");
+
+/* ---- render: trainings + filter ---- */
+const cats = ["All", ...new Set(TRAININGS.map(t => t.cat))];
+$("#trainFilter").innerHTML = cats.map((c, i) => `<button class="chip${i ? "" : " on"}" data-cat="${esc(c)}">${esc(c)}</button>`).join("");
+$("#trainList").innerHTML = TRAININGS.map(t => `
+  <div class="tr-row" data-cat="${esc(t.cat)}">
+    <span class="when">${esc(t.when)}</span>
+    <div><b>${esc(t.title)}</b><span class="org">${esc(t.org)}</span></div>
+    <span class="mode">${esc(t.mode)}</span>
+  </div>`).join("");
+$("#trainFilter").addEventListener("click", e => {
+  const b = e.target.closest(".chip"); if (!b) return;
+  document.querySelectorAll(".chip").forEach(c => c.classList.toggle("on", c === b));
+  document.querySelectorAll(".tr-row").forEach(r => r.classList.toggle("hide", b.dataset.cat !== "All" && r.dataset.cat !== b.dataset.cat));
+});
+
+/* ---- stats derived from data ---- */
+$("#statCerts").dataset.count = CERTS_FEATURED.filter(c => !/Badge$|Summary$/.test(c.title)).length + CERTS_OTHER.length;
+$("#statProjects").dataset.count = PROJECTS.length;
+$("#statTrain").dataset.count = TRAININGS.length;
+
+/* ---- typing roles ---- */
+(() => {
+  const roles = ["Offensive Security Engineer","Penetration Tester (VAPT)","SOC & SIEM Engineer","Cloud & AI Security Practitioner","Threat Intelligence Enthusiast"];
+  const el = $("#typed");
+  if (reduceMotion) { el.textContent = roles[0]; return; }
+  let r = 0, c = 0, del = false;
+  (function tick() {
+    const word = roles[r];
+    el.textContent = word.slice(0, c);
+    if (!del && c === word.length) { del = true; return setTimeout(tick, 1800); }
+    if (del && c === 0) { del = false; r = (r + 1) % roles.length; }
+    c += del ? -1 : 1;
+    setTimeout(tick, del ? 35 : 70);
+  })();
+})();
+
+/* ---- terminal boot sequence ---- */
+(() => {
+  const lines = [
+    ['<span class="p">mahdi@sec</span>:<span class="u">~</span>$ <span class="o">whoami</span>', 400],
+    ['<span class="k">hafiz_mahdi_hasan</span> <span class="c"># cybersecurity engineer</span>', 250],
+    ['<span class="p">mahdi@sec</span>:<span class="u">~</span>$ <span class="o">cat current_role.txt</span>', 400],
+    ['Asst. Manager — Offensive Security @ Bashundhara Group', 250],
+    ['<span class="p">mahdi@sec</span>:<span class="u">~</span>$ <span class="o">nmap --script skills localhost</span>', 400],
+    ['<span class="c">PORT    STATE  SERVICE</span>', 80],
+    ['443/tcp <span class="p">open</span>   vapt, web/api/mobile pentest', 80],
+    ['514/udp <span class="p">open</span>   siem, soar, xdr, soc-ops', 80],
+    ['8443/tcp <span class="p">open</span>  cloud-sec, ai/llm-sec', 80],
+    ['<span class="p">mahdi@sec</span>:<span class="u">~</span>$ <span class="o">./status --threats</span>', 400],
+    ['<span class="r">[!]</span> adversaries detected → <span class="p">mitigated ✔</span>', 0]
+  ];
+  const out = $("#termOut");
+  if (reduceMotion) { out.innerHTML = lines.map(l => `<div>${l[0]}</div>`).join(""); return; }
+  let i = 0;
+  (function next() {
+    if (i >= lines.length) return;
+    const d = document.createElement("div"); d.innerHTML = lines[i][0]; out.appendChild(d);
+    setTimeout(next, lines[i++][1] + 180);
+  })();
+})();
+
+/* ---- matrix rain background ---- */
+(() => {
+  const cv = $("#matrix"), ctx = cv.getContext("2d");
+  const chars = "01アイウエオカキクケコサシスセソ<>/{}[]#$%&*ABCDEF0123456789";
+  let cols, drops, fs = 15;
+  function size() {
+    cv.width = innerWidth; cv.height = innerHeight;
+    cols = Math.ceil(cv.width / fs); drops = Array.from({ length: cols }, () => Math.random() * -50);
+  }
+  size(); addEventListener("resize", size);
+  if (reduceMotion) return;
+  let last = 0;
+  (function draw(t) {
+    requestAnimationFrame(draw);
+    if (t - last < 55 || document.hidden) return; last = t;
+    ctx.fillStyle = "rgba(5,8,13,0.12)"; ctx.fillRect(0, 0, cv.width, cv.height);
+    ctx.font = fs + "px monospace";
+    for (let i = 0; i < cols; i++) {
+      ctx.fillStyle = Math.random() > 0.975 ? "#c8ffe9" : "#00ff9c";
+      ctx.fillText(chars[(Math.random() * chars.length) | 0], i * fs, drops[i] * fs);
+      if (drops[i] * fs > cv.height && Math.random() > 0.975) drops[i] = 0;
+      drops[i]++;
+    }
+  })(0);
+})();
+
+/* ---- reveal on scroll + counters ---- */
+(() => {
+  const count = el => {
+    const end = +el.dataset.count, suf = el.dataset.suffix || "";
+    if (reduceMotion) { el.textContent = end + suf; return; }
+    let n = 0; const step = Math.max(1, Math.ceil(end / 30));
+    const t = setInterval(() => { n = Math.min(end, n + step); el.textContent = n + suf; if (n >= end) clearInterval(t); }, 40);
+  };
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    e.target.classList.add("in");
+    e.target.querySelectorAll("[data-count]").forEach(count);
+    io.unobserve(e.target);
+  }), { threshold: 0.12 });
+  document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+})();
+
+/* ---- nav: mobile menu, active link, back-to-top ---- */
+(() => {
+  const btn = $("#menuBtn"), links = $("#navLinks");
+  btn.addEventListener("click", () => { const o = links.classList.toggle("open"); btn.setAttribute("aria-expanded", o); });
+  links.addEventListener("click", e => { if (e.target.closest("a")) { links.classList.remove("open"); btn.setAttribute("aria-expanded", false); } });
+  const navA = [...links.querySelectorAll("a")];
+  const secs = navA.map(a => document.querySelector(a.getAttribute("href")));
+  const toTop = $("#toTop");
+  toTop.addEventListener("click", () => scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" }));
+  addEventListener("scroll", () => {
+    const y = scrollY + 120;
+    let cur = -1; secs.forEach((s, i) => { if (s && s.offsetTop <= y) cur = i; });
+    navA.forEach((a, i) => a.classList.toggle("active", i === cur));
+    toTop.classList.toggle("show", scrollY > 600);
+  }, { passive: true });
+})();
+
+/* ---- lightbox ---- */
+(() => {
+  const lb = $("#lightbox"), img = $("#lbImg"), cap = $("#lbCap");
+  let lastFocus;
+  $("#certFeatured").addEventListener("click", e => {
+    const b = e.target.closest(".cert-img"); if (!b) return;
+    const c = CERTS_FEATURED[b.dataset.i];
+    lastFocus = b; img.src = c.img; img.alt = c.title; cap.textContent = `${c.title} · ${c.issuer} · ${c.date}`;
+    img.style.background = c.badge ? "transparent" : "#fff";
+    lb.classList.add("open"); $("#lbClose").focus(); document.body.style.overflow = "hidden";
+  });
+  const close = () => { lb.classList.remove("open"); document.body.style.overflow = ""; lastFocus && lastFocus.focus(); };
+  $("#lbClose").addEventListener("click", close);
+  lb.addEventListener("click", e => { if (e.target === lb) close(); });
+  addEventListener("keydown", e => { if (e.key === "Escape" && lb.classList.contains("open")) close(); });
+})();
+
+$("#year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
